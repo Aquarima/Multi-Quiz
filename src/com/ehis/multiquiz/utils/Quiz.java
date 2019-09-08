@@ -1,10 +1,13 @@
 package com.ehis.multiquiz.utils;
 
+import com.ehis.multiquiz.Game;
+import com.ehis.multiquiz.Main;
 import com.ehis.multiquiz.entity.Category;
 
 import java.io.*;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
 public class Quiz {
@@ -16,9 +19,9 @@ public class Quiz {
     private ArrayList<String> elements = new ArrayList<>();
     private Random r = new Random();
 
-    public Quiz(String category) {
+    public Quiz(Category selection) {
         try {
-            File file = new File("src/resources/" + Category.valueOf(category).getFilename());
+            File file = new File("src/resources/" + selection.getFilename());
             read(file);
         } catch (IOException e) {
             e.printStackTrace();
@@ -27,14 +30,18 @@ public class Quiz {
 
     private void read(File file) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream(file), StandardCharsets.UTF_8));
-        String line;
         while ((line = br.readLine()) != null) {
             br.lines().forEach(this::add);
+            isEmpty(line);
         }
     }
 
     private void add(String line) {
         elements.add(line);
+    }
+
+    private void isEmpty(String line) {
+        if (line.isEmpty()) throw new RuntimeException("\nThis file cannot be used <Reason : Empty file>");
     }
 
     public void generate() {

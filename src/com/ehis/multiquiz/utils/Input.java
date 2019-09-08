@@ -12,11 +12,7 @@ public class Input {
         this.input = scanner.nextLine();
     }
 
-    private void isValid() {
-        if (input.isEmpty()) throw new RuntimeException("Input cannot be empty !");
-    }
-
     public String getInput() {
-        return input;
+        return input.toUpperCase();
     }
 }

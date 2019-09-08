@@ -1,8 +1,12 @@
 package com.ehis.multiquiz.entity;
 
+import java.util.Arrays;
+import java.util.LinkedList;
+import java.util.List;
+
 public enum Category {
 
-    CUSTOM("custom_quiz.txt"), YOUTUBE("youtube_quiz.txt");
+    CUSTOM("custom_quiz.txt");
 
     private String filename;
 

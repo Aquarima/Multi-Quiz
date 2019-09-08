@@ -1,7 +1,11 @@
 package com.ehis.multiquiz;
 
+import com.ehis.multiquiz.entity.Category;
 import com.ehis.multiquiz.utils.Input;
 import com.ehis.multiquiz.utils.Quiz;
+
+import java.util.Arrays;
+import java.util.List;
 
 public class Game {
 
@@ -9,9 +13,9 @@ public class Game {
     private int hits = 0;
     private int round = 8;
 
-    public Game(String category) {
+     public Game(Category category) {
 
-        quiz = new Quiz(category.toUpperCase());
+        quiz = new Quiz(category);
 
         long start = System.currentTimeMillis();
 
@@ -31,24 +35,19 @@ public class Game {
             round++;
         }
 
-        long end = System.currentTimeMillis();
+        long time = (System.currentTimeMillis() - start) /1000;
 
-        GameEnding(category, (end - start / 1000), hits);
+        GameEnd end = new GameEnd(time, hits);
 
-    }
-
-    private void GameEnding(String category, long time, int hits) {
-        StringBuilder builder = new StringBuilder();
-        builder.append("\n###### STATISTIQUES ######");
-        builder.append("\nCatégorie : " + category);
-        builder.append("\nTemps : " + time + "s");
-        builder.append("\nScore : " + hits + "/" + 10);
-        builder.append("\n##########################");
-        System.out.println(builder);
     }
 
     private boolean matches(String input) {
         return input.equals(quiz.getAnswer());
+    }
+
+    public List<Category> categories(List<Category> categories) {
+        categories.addAll(Arrays.asList(Category.values()));
+        return categories;
     }
 
 }
