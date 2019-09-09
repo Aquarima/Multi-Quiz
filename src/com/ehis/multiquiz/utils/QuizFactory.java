@@ -30,9 +30,7 @@ public class QuizFactory {
 
     private void read(File file) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream(file), StandardCharsets.UTF_8));
-        while ((line = br.readLine()) != null) {
-            br.lines().forEach(this::add);
-        }
+        while ((line = br.readLine()) != null) br.lines().forEach(this::add);
     }
 
     private void add(String line) {
