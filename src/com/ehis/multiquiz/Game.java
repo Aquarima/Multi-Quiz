@@ -4,11 +4,14 @@ import com.ehis.multiquiz.entity.Category;
 import com.ehis.multiquiz.utils.Input;
 import com.ehis.multiquiz.utils.QuizFactory;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Game {
 
     private String answer;
     private int points = 0;
-    private int round = 0;
+    private int round = 10;
 
     Game(Category category) {
 

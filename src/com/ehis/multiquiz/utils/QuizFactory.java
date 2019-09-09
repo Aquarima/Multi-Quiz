@@ -21,7 +21,7 @@ public class QuizFactory {
 
     public QuizFactory(Category selection) {
         try {
-            File file = new File("src/resources/" + selection.getFilename());
+            File file = new File("src/resources/quiz/" + selection.getFilename());
             read(file);
         } catch (IOException e) {
             e.printStackTrace();
