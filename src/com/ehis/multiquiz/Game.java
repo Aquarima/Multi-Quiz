@@ -2,20 +2,17 @@ package com.ehis.multiquiz;
 
 import com.ehis.multiquiz.entity.Category;
 import com.ehis.multiquiz.utils.Input;
-import com.ehis.multiquiz.utils.Quiz;
-
-import java.util.Arrays;
-import java.util.List;
+import com.ehis.multiquiz.utils.QuizFactory;
 
 public class Game {
 
-    private Quiz quiz;
+    private QuizFactory quiz;
     private int hits = 0;
     private int round = 8;
 
-     public Game(Category category) {
+    Game(Category category) {
 
-        quiz = new Quiz(category);
+        quiz = new QuizFactory(category);
 
         long start = System.currentTimeMillis();
 
@@ -24,30 +21,24 @@ public class Game {
             quiz.generate();
             quiz.print();
 
-            System.out.print("\n\nChoix : ");
+            System.out.print("\n\nChoice : ");
             String input = new Input().getInput();
 
             if (matches(input)) {
-                System.out.println("\nBonne réponse !");
+                System.out.println("\nGood Answer (+1) !");
                 hits++;
-            }else System.out.println("\nMauvaise réponse !");
+            }else System.out.println("\nBad Answer (+0) !");
 
             round++;
         }
 
         long time = (System.currentTimeMillis() - start) /1000;
 
-        GameEnd end = new GameEnd(time, hits);
+        GameEnd end = new GameEnd(category, time, hits);
 
     }
 
     private boolean matches(String input) {
         return input.equals(quiz.getAnswer());
     }
-
-    public List<Category> categories(List<Category> categories) {
-        categories.addAll(Arrays.asList(Category.values()));
-        return categories;
-    }
-
 }

@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-public class Quiz {
+public class QuizFactory {
 
     private String line;
     private String question;
@@ -19,7 +19,7 @@ public class Quiz {
     private ArrayList<String> elements = new ArrayList<>();
     private Random r = new Random();
 
-    public Quiz(Category selection) {
+    public QuizFactory(Category selection) {
         try {
             File file = new File("src/resources/" + selection.getFilename());
             read(file);
@@ -32,16 +32,11 @@ public class Quiz {
         BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream(file), StandardCharsets.UTF_8));
         while ((line = br.readLine()) != null) {
             br.lines().forEach(this::add);
-            isEmpty(line);
         }
     }
 
     private void add(String line) {
         elements.add(line);
-    }
-
-    private void isEmpty(String line) {
-        if (line.isEmpty()) throw new RuntimeException("\nThis file cannot be used <Reason : Empty file>");
     }
 
     public void generate() {

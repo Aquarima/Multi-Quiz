@@ -1,12 +1,15 @@
 package com.ehis.multiquiz;
 
-public class GameEnd {
+import com.ehis.multiquiz.entity.Category;
 
-    public GameEnd(long time, int hits) {
+class GameEnd {
+
+    GameEnd(Category category, long time, int hits) {
         StringBuilder builder = new StringBuilder();
         builder.append("\n####### STATISTICS #######");
-        builder.append("\nTime : " + time + "s");
-        builder.append("\nScore : " + hits + "/" + 10);
+        builder.append("\n    Category : " + category);
+        builder.append("\n      Time : " + time + "s");
+        builder.append("\n      Score : " + hits + "/" + 10);
         builder.append("\n##########################");
         System.out.println(builder);
     }
