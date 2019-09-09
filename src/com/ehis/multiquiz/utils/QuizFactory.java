@@ -39,10 +39,11 @@ public class QuizFactory {
         elements.add(line);
     }
 
-    public void generate() {
+    public String generate() {
         this.line = elements.get(r.nextInt(elements.size()));
         this.args = line.split(" -> ");
         this.question = args[0];
+        return args[1];
     }
 
     public void print() {
@@ -51,10 +52,6 @@ public class QuizFactory {
         builder.append(question);
         builder.append("\n\nA [" + a1[0] + "] B [" + a1[1] + "] C [" + a1[2] + "] D [" + a1[3] + "]");
         System.out.print(builder);
-    }
-
-    public String getAnswer() {
-        return args[1];
     }
 
 }

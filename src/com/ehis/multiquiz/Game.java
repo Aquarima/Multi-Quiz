@@ -6,19 +6,19 @@ import com.ehis.multiquiz.utils.QuizFactory;
 
 public class Game {
 
-    private QuizFactory quiz;
-    private int hits = 0;
-    private int round = 8;
+    private String answer;
+    private int points = 0;
+    private int round = 0;
 
     Game(Category category) {
 
-        quiz = new QuizFactory(category);
+        QuizFactory quiz = new QuizFactory(category);
 
         long start = System.currentTimeMillis();
 
         while (round != 10) {
 
-            quiz.generate();
+            answer = quiz.generate();
             quiz.print();
 
             System.out.print("\n\nChoice : ");
@@ -26,7 +26,7 @@ public class Game {
 
             if (matches(input)) {
                 System.out.println("\nGood Answer (+1) !");
-                hits++;
+                points++;
             }else System.out.println("\nBad Answer (+0) !");
 
             round++;
@@ -34,11 +34,11 @@ public class Game {
 
         long time = (System.currentTimeMillis() - start) /1000;
 
-        GameEnd end = new GameEnd(category, time, hits);
+        GameEnd end = new GameEnd(category, time, points);
 
     }
 
     private boolean matches(String input) {
-        return input.equals(quiz.getAnswer());
+        return input.equals(answer);
     }
 }
