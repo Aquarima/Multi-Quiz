@@ -9,8 +9,8 @@ public class Game {
 
     private QuizFactory quiz;
     private Category category;
-    private int round = 0;
     private String answer;
+    private int round = 0;
     private int points = 0;
     private long time = 0;
 
