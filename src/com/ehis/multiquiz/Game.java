@@ -25,7 +25,7 @@ public class Game {
         long start = System.currentTimeMillis();
         while (round != 10) {
             quiz();
-            input();
+            createInput();
             round++;
         }
         time = (System.currentTimeMillis() - start) / 1000;
@@ -37,7 +37,7 @@ public class Game {
         quiz.print();
     }
 
-    private void input() {
+    private void createInput() {
         String input = new Input().nextLine("\nChoose : ");
         verifyAnswer(input);
     }
