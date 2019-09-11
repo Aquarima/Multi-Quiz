@@ -24,17 +24,25 @@ public class Game {
     public void start() {
         long start = System.currentTimeMillis();
         while (round != 10) {
-            answer = quiz.generate();
-            quiz.print();
-            String input = new Input().nextLine("\nChoose : ");
-            verifyAnswer(input);
+            quiz();
+            input();
             round++;
         }
         time = (System.currentTimeMillis() - start) / 1000;
         stop();
     }
 
-    public void stop() {
+    private void quiz() {
+        answer = quiz.generate();
+        quiz.print();
+    }
+
+    private void input() {
+        String input = new Input().nextLine("\nChoose : ");
+        verifyAnswer(input);
+    }
+
+    private void stop() {
         Score score = new Score(category, points, time);
         score.print();
         score.write();
