@@ -1,0 +1,4 @@
+############ To add a question use -> <question> -> <A,B,C D> ############
+En quelle année a été créé YouTube ? -> D -> 2002 - 2003 - 2004 - 2005
+Example de 5 ? -> C -> Option1 - Option2 - Option3 - Option4
+Example de 3 ? -> D -> Option1 - Option2 - Option3 - Option4

@@ -15,16 +15,19 @@
       </list>
     </option>
   </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/src/com/ehis/multiquiz/utils/Input.java" root0="FORCE_HIGHLIGHTING" />
+  </component>
   <component name="ProjectId" id="1QYjEmM27Kq0dDVpI1pDWiCyQcI" />
   <component name="PropertiesComponent">
     <property name="last_opened_file_path" value="$PROJECT_DIR$/src" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\Conforama\Desktop\WorkSpace\Java Projects\Multi-Quiz\src\resources\quiz" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\Conforama\Desktop\WorkSpace\Java Projects\Multi-Quiz\src" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Conforama\Desktop\WorkSpace\Java Projects\Multi-Quiz\src\resources\quiz" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -45,7 +48,7 @@
       <module name="Multi-Quiz" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.ehis.multiquiz.*" />
+          <option name="PATTERN" value="com.ehis.multiquiz.utils.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>

@@ -3,45 +3,50 @@ package com.ehis.multiquiz;
 import com.ehis.multiquiz.entity.Category;
 import com.ehis.multiquiz.utils.Input;
 import com.ehis.multiquiz.utils.QuizFactory;
-
-import java.util.ArrayList;
-import java.util.List;
+import com.ehis.multiquiz.utils.Score;
 
 public class Game {
 
+    private QuizFactory quiz;
+    private Category category;
+    private int round = 0;
     private String answer;
     private int points = 0;
-    private int round = 10;
+    private long time = 0;
 
-    Game(Category category) {
+    public Game() { }
 
-        QuizFactory quiz = new QuizFactory(category);
+    public Game(Category category) {
+        this.category = category;
+        this.quiz = new QuizFactory(category);
+    }
 
+    public void start() {
         long start = System.currentTimeMillis();
-
         while (round != 10) {
-
             answer = quiz.generate();
             quiz.print();
-
-            System.out.print("\n\nChoice : ");
-            String input = new Input().getInput();
-
-            if (matches(input)) {
-                System.out.println("\nGood Answer (+1) !");
-                points++;
-            }else System.out.println("\nBad Answer (+0) !");
-
+            String input = new Input().nextLine("\nChoose : ");
+            verifyAnswer(input);
             round++;
         }
-
-        long time = (System.currentTimeMillis() - start) /1000;
-
-        GameEnd end = new GameEnd(category, time, points);
-
+        time = (System.currentTimeMillis() - start) / 1000;
+        stop();
     }
 
-    private boolean matches(String input) {
-        return input.equals(answer);
+    public void stop() {
+        Score score = new Score(category, points, time);
+        score.print();
+        score.write();
     }
+
+    private void verifyAnswer(String input) {
+        if (!input.equals(answer)) {
+            System.err.println("\nBad Answer (+0)");
+            return;
+        }
+        System.err.println("\nGood Answer (+1) !");
+        points++;
+    }
+
 }

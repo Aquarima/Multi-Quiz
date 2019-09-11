@@ -4,15 +4,18 @@ import com.ehis.multiquiz.entity.Category;
 import com.ehis.multiquiz.utils.Input;
 
 public class Main {
+
     public static void main(String[] args) {
 
+        Game game = new Game();
         String input;
 
         do {
-            System.out.print("Category : ");
-            input = new Input().getInput();
+            input = new Input().nextLine("Category : ");
         } while (!Category.list().contains(input));
 
-        Game game = new Game(Category.valueOf(input));
+        game = new Game(Category.valueOf(input));
+        game.start();
+
     }
 }

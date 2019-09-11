@@ -1,4 +1,4 @@
-package com.ehis.multiquiz;
+package com.ehis.multiquiz.utils;
 
 import com.ehis.multiquiz.entity.Category;
 
@@ -10,23 +10,33 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-class GameEnd {
+public class Score {
 
-    GameEnd(Category category, long time, int points) {
+    private StringBuilder builder;
+    private Category category;
+    private int score;
+    private long time;
+
+    public Score(Category category, int score, long time) {
+        this.category = category;
+        this.score = score;
+        this.time = time;
+    }
+
+    public void print() {
 
         DateFormat date = new SimpleDateFormat("dd/MM/yyyy");
 
-        StringBuilder builder = new StringBuilder();
+        builder = new StringBuilder();
         builder.append("\n####### [" + date.format(new Date()) + "] #######");
         builder.append("\n     Category : " + category);
         builder.append("\n       Time : " + time + "s");
-        builder.append("\n       Score : " + points + "/" + 10);
+        builder.append("\n       Score : " + score + "/" + 10);
         builder.append("\n############################");
         System.out.println(builder);
-        write(builder);
     }
 
-    private void write(StringBuilder builder) {
+    public void write() {
         try {
             File file = new File("src/resources/STATS.txt");
             BufferedWriter bw = new BufferedWriter(new FileWriter(file, true));

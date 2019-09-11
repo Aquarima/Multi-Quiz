@@ -1,13 +1,10 @@
 package com.ehis.multiquiz.utils;
 
-import com.ehis.multiquiz.Game;
-import com.ehis.multiquiz.Main;
 import com.ehis.multiquiz.entity.Category;
 
 import java.io.*;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Random;
 
 public class QuizFactory {
