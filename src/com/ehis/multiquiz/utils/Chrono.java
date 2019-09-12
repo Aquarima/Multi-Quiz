@@ -5,7 +5,7 @@ public class Chrono {
     private long start;
     private long end;
 
-    public void begin() {
+    public void start() {
         this.start = System.currentTimeMillis();
     }
 
@@ -16,4 +16,5 @@ public class Chrono {
     public long getTime() {
         return (end - start) / 1000;
     }
+
 }

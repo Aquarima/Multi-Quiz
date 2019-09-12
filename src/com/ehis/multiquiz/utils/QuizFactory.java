@@ -14,7 +14,6 @@ public class QuizFactory {
     private String[] args;
 
     private ArrayList<String> elements = new ArrayList<>();
-    private ArrayList<String> usedElements = new ArrayList<>();
     private Random r = new Random();
 
     public QuizFactory(Category selection) {
@@ -38,8 +37,8 @@ public class QuizFactory {
     public String generate() {
         this.line = elements.get(r.nextInt(elements.size()));
         this.args = line.split(" -> ");
-        this.usedElements.add(args[0]);
         this.question = args[0];
+        this.elements.remove(line);
         return args[1];
     }
 
@@ -49,10 +48,6 @@ public class QuizFactory {
         builder.append(question);
         builder.append("\n\nA [" + a1[0] + "] B [" + a1[1] + "] C [" + a1[2] + "] D [" + a1[3] + "]");
         System.out.print(builder);
-    }
-
-    public boolean isAlreadyUsed() {
-        return usedElements.contains(args[0]);
     }
 
 }
