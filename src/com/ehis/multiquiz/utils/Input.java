@@ -5,22 +5,16 @@ import java.util.Scanner;
 public class Input {
 
     private Scanner scanner = new Scanner(System.in);
+    private String input = "";
 
     public String nextLine(String topic) {
-        System.out.print(topic);
-        String input = scanner.nextLine();
 
-        while (verify(input)) {
+        while (input.isEmpty()) {
             System.out.print(topic);
             input = scanner.nextLine();
         }
 
         return input.toUpperCase();
-    }
-
-    private boolean verify(String input) {
-        if (input.isEmpty()) System.err.println("Input cannot be empty !");
-        return input.isEmpty();
     }
 
 }

@@ -7,12 +7,12 @@ public class Main {
 
     public static void main(String[] args) {
 
-        Game game = new Game();
+        Game game;
         String input;
 
         do {
             input = new Input().nextLine("Category : ");
-        } while (!Category.list().contains(input));
+        } while (!Category.isCategory(input));
 
         game = new Game(Category.valueOf(input));
         game.start();

@@ -17,9 +17,9 @@ public enum Category {
         return filename;
     }
 
-    public static List list() {
+    public static boolean isCategory(String input) {
         List<String> list = new ArrayList<>();
         for (Category category : Category.values()) list.add(category.toString());
-        return list;
+        return list.contains(input);
     }
 }

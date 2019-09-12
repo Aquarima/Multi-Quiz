@@ -29,7 +29,7 @@ public class Score {
 
         builder = new StringBuilder();
         builder.append("\n####### [" + date.format(new Date()) + "] #######");
-        builder.append("\n     Category : " + category);
+        builder.append("\n     Quiz : " + category);
         builder.append("\n       Time : " + time + "s");
         builder.append("\n       Score : " + score + "/" + 10);
         builder.append("\n############################");
