@@ -15,13 +15,11 @@ public class Score {
     private StringBuilder builder;
     private Category category;
     private int score;
-    private long resolveTime;
     private long time;
 
-    public Score(Category category, int score, long resolveTime, long time) {
+    public Score(Category category, int score, long time) {
         this.category = category;
         this.score = score;
-        this.resolveTime = resolveTime;
         this.time = time;
     }
 
@@ -32,7 +30,6 @@ public class Score {
         builder = new StringBuilder();
         builder.append("\n####### [" + date.format(new Date()) + "] #######");
         builder.append("\n      Quiz : " + category);
-        builder.append("\n    Resolve Time : " + resolveTime);
         builder.append("\n       Time : " + time + "s");
         builder.append("\n       Score : " + score + "/" + 10);
         builder.append("\n############################");

@@ -1,6 +1,6 @@
 package com.ehis.multiquiz.utils;
 
-public class Chrono {
+public class Chronometer {
 
     private long start;
     private long end;
