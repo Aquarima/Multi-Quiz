@@ -1,6 +1,6 @@
 # Multi-Quiz
 
-Author : Exalow / Ehis
+Author : Exalow
 
 Note : You can create your own quiz by editing file named "custom_quiz.txt".
 
